@@ -66,19 +66,19 @@
 		FF50508F2712F72800F213B2 /* macOSfocusedValsHack */ = {
 			isa = PBXGroup;
 			children = (
-				FFBF10702719B1F300DFB81F /* LICENSE */,
 				FF5050902712F72800F213B2 /* AppRoot.swift */,
 				FF5050942712F72A00F213B2 /* Assets.xcassets */,
 				FF5050922712F72800F213B2 /* ContentView.swift */,
 				FF9815DD2715DC9B00A8AD53 /* EnvironmentValues.swift */,
 				FF9815DF2715E22E00A8AD53 /* FocusedValues.swift */,
-				FF9815E12715F73A00A8AD53 /* ScientistsCommands.swift */,
 				FF9815D72715DA5100A8AD53 /* HostingWindowFinder.swift */,
+				FFBF10702719B1F300DFB81F /* LICENSE */,
 				FF5050992712F72A00F213B2 /* macOS12XcodeWorkyTest.entitlements */,
 				FF5050962712F72A00F213B2 /* Preview Content */,
+				FFBF106F27199DB400DFB81F /* README.md */,
+				FF9815E12715F73A00A8AD53 /* ScientistsCommands.swift */,
 				FF9815DB2715DC6F00A8AD53 /* WindowObservationModifier.swift */,
 				FF9815D92715DBF800A8AD53 /* WindowObserver.swift */,
-				FFBF106F27199DB400DFB81F /* README.md */,
 			);
 			path = macOSfocusedValsHack;
 			sourceTree = "<group>";
@@ -296,12 +296,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOSfocusedValsHack/macOS12XcodeWorkyTest.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macOSfocusedValsHack/Preview Content\"";
-				DEVELOPMENT_TEAM = 5NZZ2G4JD4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -325,12 +325,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOSfocusedValsHack/macOS12XcodeWorkyTest.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macOSfocusedValsHack/Preview Content\"";
-				DEVELOPMENT_TEAM = 5NZZ2G4JD4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

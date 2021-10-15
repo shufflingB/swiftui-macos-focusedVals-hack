@@ -25,6 +25,13 @@ The scene then:
 1. Listens for changes in `isKeyWindow` and sets a local copy using differential timing to ensure that the instance where keyWindow is true is set last. This is necessary to ensure that the latest version of the `Commands` menu is correctly generated.
 2. Uses a `Binding` and a special value to clear the `focusedValue` when scene is not the `keyWindow`. This is necessary to allow it to restore the value when it becomes the `keyWindow` again.
 
+### To compile and run demo app
+Needs macOS Monterey and version of Xcode capable of building for it such as Xcode  13.0 beta 5.
+
+0. Set 
+1. Run on macOS:
+1. Use `File-> New window`, or default `Cmd+n` to open multiple windows.
+2. Click on other apps, or different window from this app to move `keyWindow` to a different Window. 
 
 ## Notes
 1. Kudos to Lost Moa for the excellent, particularly for macOS, [blog posts](https://lostmoa.com/blog/).
