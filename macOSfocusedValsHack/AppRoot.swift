@@ -11,16 +11,18 @@ import SwiftUI
 struct AppRoot: App {
     
     /// This WindowObserver object is from  https://lostmoa.com/blog/ReadingTheCurrentWindowInANewSwiftUILifecycleApp/
-    @StateObject var windowObserver = WindowObserver()
+
+    @StateObject var appModel =  AppModel()
 
     var body: some Scene {
         WindowGroup {
-            ContentsView()
-                .environmentObject(windowObserver)
-                .modifier(WindowObservationModifier())
+            ContentView()
+                .environmentObject(appModel)
+
         }
         .commands {
-            ScientistsCommands()
+            ScientistsCommands(appModel: appModel)
+                
         }
     }
 }

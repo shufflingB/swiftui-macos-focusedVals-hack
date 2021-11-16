@@ -15,6 +15,7 @@ struct WindowObservationModifier: ViewModifier {
         content.background(
             HostingWindowFinder { [weak windowObserver] window in
                 windowObserver?.window = window
+//                print(window?.identifier)
             }
         ).environment(\.isKeyWindow, windowObserver.isKeyWindow)
     }

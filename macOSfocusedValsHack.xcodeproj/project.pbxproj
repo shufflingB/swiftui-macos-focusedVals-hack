@@ -13,6 +13,7 @@
 		FF5050932712F72800F213B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5050922712F72800F213B2 /* ContentView.swift */; };
 		FF5050952712F72A00F213B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5050942712F72A00F213B2 /* Assets.xcassets */; };
 		FF5050982712F72A00F213B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5050972712F72A00F213B2 /* Preview Assets.xcassets */; };
+		FF63C14D2743C931001A4AF2 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C14C2743C931001A4AF2 /* AppModel.swift */; };
 		FF9815D82715DA5100A8AD53 /* HostingWindowFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9815D72715DA5100A8AD53 /* HostingWindowFinder.swift */; };
 		FF9815DA2715DBF800A8AD53 /* WindowObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9815D92715DBF800A8AD53 /* WindowObserver.swift */; };
 		FF9815DC2715DC6F00A8AD53 /* WindowObservationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9815DB2715DC6F00A8AD53 /* WindowObservationModifier.swift */; };
@@ -30,6 +31,7 @@
 		FF5050942712F72A00F213B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF5050972712F72A00F213B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF5050992712F72A00F213B2 /* macOS12XcodeWorkyTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS12XcodeWorkyTest.entitlements; sourceTree = "<group>"; };
+		FF63C14C2743C931001A4AF2 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		FF9815D72715DA5100A8AD53 /* HostingWindowFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingWindowFinder.swift; sourceTree = "<group>"; };
 		FF9815D92715DBF800A8AD53 /* WindowObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowObserver.swift; sourceTree = "<group>"; };
 		FF9815DB2715DC6F00A8AD53 /* WindowObservationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowObservationModifier.swift; sourceTree = "<group>"; };
@@ -75,12 +77,13 @@
 				FF5050922712F72800F213B2 /* ContentView.swift */,
 				FF9815DD2715DC9B00A8AD53 /* EnvironmentValues.swift */,
 				FF9815DF2715E22E00A8AD53 /* FocusedValues.swift */,
-				FF9815D72715DA5100A8AD53 /* HostingWindowFinder.swift */,
 				FF5050992712F72A00F213B2 /* macOS12XcodeWorkyTest.entitlements */,
 				FF5050962712F72A00F213B2 /* Preview Content */,
 				FF9815E12715F73A00A8AD53 /* ScientistsCommands.swift */,
+				FF9815D72715DA5100A8AD53 /* HostingWindowFinder.swift */,
 				FF9815DB2715DC6F00A8AD53 /* WindowObservationModifier.swift */,
 				FF9815D92715DBF800A8AD53 /* WindowObserver.swift */,
+				FF63C14C2743C931001A4AF2 /* AppModel.swift */,
 			);
 			path = macOSfocusedValsHack;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				FF9815DE2715DC9B00A8AD53 /* EnvironmentValues.swift in Sources */,
 				FF9815E22715F73A00A8AD53 /* ScientistsCommands.swift in Sources */,
 				FF9815DC2715DC6F00A8AD53 /* WindowObservationModifier.swift in Sources */,
+				FF63C14D2743C931001A4AF2 /* AppModel.swift in Sources */,
 				FF5050932712F72800F213B2 /* ContentView.swift in Sources */,
 				FF5050912712F72800F213B2 /* AppRoot.swift in Sources */,
 				FF9815DA2715DBF800A8AD53 /* WindowObserver.swift in Sources */,

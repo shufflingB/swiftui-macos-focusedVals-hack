@@ -9,16 +9,27 @@ import Combine
 import SwiftUI
 
 struct OtherView: View {
-    @FocusedBinding(\.scientist) var focusedScientist: String?
+    // MARK: Hack for broken @FocusedBinding
+
+    // Have to replace
+    // @FocusedBinding(\.scientist) var focusedScientist: String?
+    // with ...
+    @EnvironmentObject var appModel: AppModel /// part of hack - Uses a @Published property to share focusedScientist across the complete App
+    @Environment(\.isKeyWindow) var isKeyWindow: Bool /// part of hack -  Indicates whether the window hosting the current view is the current keyWindow
+    @State var windowId: UUID /// part of hack - Allow each window instance to be uniquely id'd - although never changed, has to be @State or would not be set different
+    /// for each window instanct
+
     var body: some View {
         TextField(
-            "OtherView",
+            "Focused Value",
             text: Binding(
+                // MARK: Hack for broken @FocusedBinding, s/focusedScientist/appModel.focusedScientist/
+
                 get: {
-                    focusedScientist ?? "No focusedScientist"
+                    appModel.focusedScientist ?? "No focusedScientist"
                 },
                 set: { newValue in
-                    focusedScientist = newValue
+                    appModel.focusedScientistUpdate(windowId, isKeyWindow: isKeyWindow, windowsString: newValue)
                 }),
 
             prompt: Text("Enter text in ContentView")
@@ -28,26 +39,23 @@ struct OtherView: View {
     }
 }
 
-struct ContentsView: View {
-    @Environment(\.isKeyWindow) var isKeyWindow: Bool
-
+struct MainWindow: View {
+    // MARK: Hack for broken @FocusedBinding
+    // Have to replace
+    /// later usage of  .focusedSceneValue(\.scientist, $scientist)
+    // with ...
+    @EnvironmentObject var appModel: AppModel /// part of hack - Uses a @Published property to share focusedScientist across the complete App
+    @Environment(\.isKeyWindow) var isKeyWindow: Bool /// part of hack -  Indicates whether the window hosting the current view is the current keyWindow
     @State var scientist: String = ""
-    @State var localIsKeyWindow: Bool = false
+    @State var windowID = UUID()
 
     var body: some View {
         VStack {
             Form {
-                OtherView()
+                OtherView(windowId: windowID)
 
                 TextField("ContentView", text: $scientist, prompt: Text("Enter text here"))
-                    .focusedSceneValue(\.scientist, Binding(
-                        get: {
-                            localIsKeyWindow ? scientist : FocusedValues.KEY_WINDOW_IS_FALSE_VALUE_HACK
-                        },
-                        set: { newValue in
-                            scientist = newValue
-                        }
-                    ))
+                    /// .focusedSceneValue(\.scientist, $scientist)
                     .help("With multiple windows, when this window is the keyWindow this TextField updates the 'focusedSceneValue' that OtherView and the Scientists menu uses. NB: focusedSceneValue is independent of if this field has focus or not. To make it dependent on TextField focus, replace focusedSceneValue with focusedValue"
                     )
             }
@@ -60,31 +68,34 @@ struct ContentsView: View {
         .navigationTitle("\(isKeyWindow ? "Is app keyWindow" : "Not app keyWindow") (\(scientist))")
         .onAppear(perform: {
             /// Add some data so that when there are multiple windows it's a bit easier to distiguish between them
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                scientist = [
-                    "Curie", "Bell Burnell", "Meitner", "Hodgkin", "Franklin", "Herschel",
-                    "Charpentier", "Doudna",
-                ]
-                .randomElement() ?? "Bogus - something's gone very wrong and bad"
-            }
+            scientist = [
+                "Curie", "Bell Burnell", "Meitner", "Hodgkin", "Franklin", "Herschel",
+                "Charpentier", "Doudna",
+            ]
+            .randomElement() ?? "Bogus - something's gone very wrong and bad"
+            windowID = UUID()
         })
         .onChange(of: isKeyWindow) { newValue in
-            print("Got change of isKeyWindow = \(newValue)")
-            if newValue {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    localIsKeyWindow = newValue
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    localIsKeyWindow = newValue
-                }
-            }
+            appModel.focusedScientistUpdate(windowID, isKeyWindow: newValue, windowsString: scientist)
         }
+        .onChange(of: scientist) { newValue in
+            appModel.focusedScientistUpdate(windowID, isKeyWindow: isKeyWindow, windowsString: newValue)
+        }
+    }
+}
+
+struct ContentView: View {
+    @StateObject var windowObserver = WindowObserver()
+
+    var body: some View {
+        MainWindow()
+            .environmentObject(windowObserver)
+            .modifier(WindowObservationModifier())
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentsView()
+        MainWindow()
     }
 }

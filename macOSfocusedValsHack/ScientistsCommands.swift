@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ScientistsCommands: Commands {
-    @FocusedBinding(\.scientist) var focusedScientist: String?
+    //@FocusedBinding(\.scientist) var focusedScientist: String?
+    @ObservedObject var appModel: AppModel
 
     var body: some Commands {
-        print("\t Building the CommandMenu, focusedText = \(String(describing: focusedScientist))\n")
 
         return CommandMenu("Scientists") {
-            if let fs = focusedScientist, fs != "" {
+            if let fs =  appModel.focusedScientist, fs != "" {
                 Button("Do something with \(fs)") {
                     print("Doing something with \(fs)")
                 }
