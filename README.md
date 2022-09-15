@@ -4,7 +4,18 @@ This app demonstrates one way to hack around what I believe are bugs in the way 
 
 Hopefully the hack will be redundant shortly ...
 
+ 
+
 ## The problem
+
+### macOS @ 2022/09/15 - Fixed
+
+As of Xcode 14.0 beta 6 (14A5294g) and macOS 13.0 Beta (22A5342F) not seeing the underlying problem with FocusedValues
+not being restored when the a window regains key status. 
+
+Unsure if fix has been back-ported to earlier versions of macOS as unable to test. 
+
+
 ### macOS @ 2021/11/61
 - on macOS Monterey 12.0.1 (21A5552a)
 - with Xcode  13.1
